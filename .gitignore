@@ -19,6 +19,9 @@ target/
 #variavies de ambiente
 *.env
 
+#Configuracoes locais com senhas
+src/main/resources/application.properties
+
 ### Eclipse ###
 .apt_generated
 .classpath
