@@ -21,8 +21,8 @@ A web-based task management application built with Java and Spring Boot. This pr
 ## Features
 
 - Create, read, update and delete tasks
-- Set task priority (LOW, MEDIUM, HIGH)
-- Track task status (PENDING, IN_PROGRESS, DONE)
+- Set task priority (BAIXA, MEDIA, ALTA)
+- Track task status (PENDENTE, EM_ANDAMENTO, CONCLUIDA)
 - Set due dates per task
 - REST API with JSON responses
 
@@ -35,20 +35,16 @@ A web-based task management application built with Java and Spring Boot. This pr
 ```
 src/
 └── main/
-    ├── java/org/example/
-    │   ├── TaskOrganizerApplication.java
-    │   ├── controller/
-    │   │   └── TaskController.java
-    │   ├── service/
-    │   │   └── TaskService.java
-    │   ├── repository/
-    │   │   └── TaskRepository.java
-    │   ├── model/
-    │   │   └── Task.java
-    │   └── dto/
-    │       └── TaskDTO.java
-    └── resources/
-        └── application.properties.example
+    └── java/org/example/
+        ├── TaskOrganizerApplication.java
+        ├── model/
+        │   └── Task.java
+        ├── repository/
+        │   └── TaskRepository.java
+        ├── service/
+        │   └── TaskService.java
+        └── dto/
+            └── TaskDTO.java
 ```
 
 ---
@@ -76,10 +72,7 @@ CREATE DATABASE tarefas_db;
 
 **3. Configure the application**
 
-Copy the example config file and fill in your credentials:
-```bash
-cp src/main/resources/application.properties.example src/main/resources/application.properties
-```
+Create the file `src/main/resources/application.properties` with your credentials:
 
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/tarefas_db
@@ -95,43 +88,14 @@ spring.jpa.open-in-view=false
 mvn spring-boot:run
 ```
 
-The API will be available at `http://localhost:8080`.
-
----
-
-## API Endpoints
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/tasks` | Create a task |
-| `GET` | `/tasks` | List all tasks |
-| `GET` | `/tasks/{id}` | Get task by ID |
-| `PUT` | `/tasks/{id}` | Update a task |
-| `DELETE` | `/tasks/{id}` | Delete a task |
-| `PATCH` | `/tasks/{id}/status` | Update task status only |
-
-### Example request — Create a task
-
-```json
-POST /tasks
-Content-Type: application/json
-
-{
-  "titulo": "Study Spring Boot",
-  "descricao": "Complete the REST API phase",
-  "status": "PENDENTE",
-  "prioridade": "ALTA",
-  "dataVencimento": "2026-05-30"
-}
-```
-
 ---
 
 ## Roadmap
 
 - [x] Project setup and dependencies
-- [x] Database connection
-- [x] Task entity and REST CRUD
+- [x] Database connection (MySQL + HikariPool)
+- [x] Task entity (model, DTO, repository, service)
+- [ ] REST API controller
 - [ ] User authentication (JWT)
 - [ ] Per-user task isolation
 - [ ] Frontend (HTML + CSS + JavaScript)
