@@ -15,31 +15,31 @@ public class Task {
      private Long id;
 
      @NotBlank
-     private String titulo;
+     private String title;
 
-     private String descricao;
+     private String description;
 
      @Enumerated(EnumType.STRING)
      private Status status;
 
      @Enumerated(EnumType.STRING)
-     private Prioridade prioridade;
+     private Prioridade priority;
 
-     private LocalDate dataVencimento;
+     private LocalDate expireDate;
 
      @Column(updatable = false)
-     private LocalDateTime criadoEm;
+     private LocalDateTime creationDate;
 
      @PrePersist
      public void prePersist() {
-         this.criadoEm = LocalDateTime.now();
+         this.creationDate = LocalDateTime.now();
      }
 
      public enum Status {
-         PENDENTE, EM_ANDAMENTO, CONCLUIDA
+         PENDING, IN_PROGRESS, CONCLUDED
      }
 
      public enum Prioridade {
-         BAIXA, MEDIA, ALTA
+         LOW, MEDIUM, HIGH
      }
 }

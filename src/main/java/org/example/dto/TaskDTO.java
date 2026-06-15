@@ -9,14 +9,14 @@ import org.example.model.Task;
 public class TaskDTO {
     private Long id;
 
-    @NotBlank(message = "Titulo obrigatorio")
-    private String titulo;
+    @NotBlank(message = "Task must have a title")
+    private String title;
 
-    private String descricao;
+    private String description;
 
     private Task.Status status;
 
-    private Task.Prioridade prioridade;
+    private Task.Prioridade priority;
 
-    private LocalDate dataVencimento;
+    private LocalDate expireDate;
 }
